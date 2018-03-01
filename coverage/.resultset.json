@@ -5,15 +5,28 @@
         1,
         null,
         1,
+        null,
         1,
         2,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
         null,
         null
       ],
       "/Users/roystonHenson/Projects/makers-refresher/boris_bikes_refresher/lib/bike.rb": [
         1,
         1,
-        null,
+        2,
         null,
         null
       ],
@@ -22,8 +35,6 @@
         null,
         1,
         1,
-        null,
-        null,
         2,
         null,
         1,
@@ -42,6 +53,6 @@
         null
       ]
     },
-    "timestamp": 1519912781
+    "timestamp": 1519913996
   }
 }
