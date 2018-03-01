@@ -3,6 +3,22 @@ require 'docking_station.rb'
 describe DockingStation do
   let(:bike)   { Bike.new }
 
+  describe '#initialize' do
+    context 'user does not set capacity' do
+      it 'has default capacity' do
+        subject { DockingStation.new }
+        expect(subject.capacity).to eq(DockingStation::DEFAULT_CAPACITY)
+      end
+    end
+
+    context 'user sets capacity' do
+      subject { DockingStation.new(40) }
+      it 'has user-specified capacity' do
+        expect(subject.capacity).to eq(40)
+      end
+    end
+  end
+
   describe '#release_bike' do
     it { is_expected.to respond_to(:release_bike) }
 
@@ -25,9 +41,9 @@ describe DockingStation do
 
     context 'when bike stand is not full'
       it 'docks a bike' do
-      (DockingStation::DEFAULT_CAPACITY - 1).times do
-        subject.dock_bike(Bike.new)
-      end
+        (DockingStation::DEFAULT_CAPACITY - 1).times do
+          subject.dock_bike(Bike.new)
+        end
       subject.dock_bike(bike)
       expect(subject.bikes).to include(bike)
     end
@@ -36,7 +52,7 @@ describe DockingStation do
       it 'throws error' do
         DockingStation::DEFAULT_CAPACITY.times do
           subject.dock_bike(Bike.new)
-        end 
+        end
         expect { subject.dock_bike(bike) }.to raise_error('This bike stand is full.')
       end
     end
