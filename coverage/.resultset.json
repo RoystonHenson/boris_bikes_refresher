@@ -1,19 +1,34 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/roystonHenson/Projects/makers-refresher/boris_bikes_refresher/spec/docking_station_spec.rb": [
+      "/Users/roystonHenson/Projects/makers-refresher/boris_bikes_refresher/spec/bike_spec.rb": [
         1,
         null,
         1,
         null,
         null
       ],
+      "/Users/roystonHenson/Projects/makers-refresher/boris_bikes_refresher/lib/bike.rb": [
+        1,
+        null,
+        null
+      ],
+      "/Users/roystonHenson/Projects/makers-refresher/boris_bikes_refresher/spec/docking_station_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        2,
+        null,
+        null
+      ],
       "/Users/roystonHenson/Projects/makers-refresher/boris_bikes_refresher/lib/docking_station.rb": [
+        1,
         1,
         null,
         null
       ]
     },
-    "timestamp": 1519905825
+    "timestamp": 1519909086
   }
 }
