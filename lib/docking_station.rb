@@ -3,7 +3,7 @@ require_relative 'bike'
 class DockingStation
   attr_reader :bike_stand
 
-  CAPACITY = 1
+  CAPACITY = 20
 
   def initialize
     @bike_stand = []

@@ -2,7 +2,6 @@ require 'docking_station.rb'
 
 describe DockingStation do
   let(:bike)   { Bike.new }
-  let(:bike_2) { Bike.new }
 
   describe '#release_bike' do
     it { is_expected.to respond_to(:release_bike) }
@@ -26,14 +25,15 @@ describe DockingStation do
 
     context 'when bike stand is not full'
       it 'docks a bike' do
+      19.times { subject.dock_bike(Bike.new) }
       subject.dock_bike(bike)
-      expect(subject.bike_stand).to eq([bike])
+      expect(subject.bike_stand).to include(bike)
     end
 
     context 'when bike stand is full' do
       it 'throws error' do
-        subject.dock_bike(bike)
-        expect { subject.dock_bike(bike_2) }.to raise_error('This bike stand is full.')
+        20.times { subject.dock_bike(Bike.new) }
+        expect { subject.dock_bike(bike) }.to raise_error('This bike stand is full.')
       end
     end
   end
