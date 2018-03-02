@@ -10,5 +10,11 @@ describe Bike do
         expect(subject.working?).to eq(true)
       end
     end
+    context 'given the bike is not working' do
+      it 'returns false' do
+        subject.broken
+        expect(subject.working?).to eq(false)
+      end
+    end
   end
 end
