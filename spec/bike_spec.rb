@@ -1,6 +1,11 @@
 require 'bike'
 
 describe Bike do
+  describe '#initialize' do
+    it 'is working when initialised' do
+
+    end
+  end
 
   describe '#working?' do
     it { expect(subject).to respond_to (:working?) }

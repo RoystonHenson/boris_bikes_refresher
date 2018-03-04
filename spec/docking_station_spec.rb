@@ -22,16 +22,25 @@ describe DockingStation do
   describe '#release_bike' do
     it { is_expected.to respond_to(:release_bike) }
 
-    context 'when bikes available' do
+    context 'when working bikes stored' do
       it 'releases a bike' do
         subject.dock_bike(bike)
         expect(subject.release_bike).to eq(bike)
       end
     end
 
-    context 'when bikes not available' do
+    context 'when no bikes stored' do
       it 'throws error' do
         expect { subject.release_bike }.to raise_error('There are no available bikes.')
+      end
+    end
+
+    context 'when only broken bikes stored' do
+      it 'does not release' do
+        bike = double('bike', working: false)
+        subject.dock_bike(bike)
+        subject.release_bike
+        expect(subject.bikes).to eq([bike])
       end
     end
   end

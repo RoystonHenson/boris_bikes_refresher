@@ -13,7 +13,8 @@ class DockingStation
 
   def release_bike
     raise 'There are no available bikes.' if empty?
-    @bikes.pop
+      release = @bikes.find { |x| x.working == true }
+      @bikes.delete(release)
   end
 
   def dock_bike(bike)
