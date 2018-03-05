@@ -4,7 +4,6 @@ describe Van do
   let(:bike)   { double('bike', working: true) }
   let(:bike_2) { double('bike 2', working: false) }
   let(:docking_station) { double('docking station', bikes: [bike, bike_2]) }
-
   describe '#initialize' do
     it 'initialises with a cargo area' do
       expect(subject.cargo_area).to eq([])
