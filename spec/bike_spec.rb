@@ -3,7 +3,7 @@ require 'bike'
 describe Bike do
   describe '#initialize' do
     it 'is working when initialised' do
-
+      expect(subject.working).to eq(true)
     end
   end
 
@@ -20,6 +20,13 @@ describe Bike do
         subject.broken
         expect(subject.working?).to eq(false)
       end
+    end
+  end
+
+  describe '#broken' do
+    it 'sets bike working from true to false' do
+      subject.broken
+      expect(subject.working).to eq(false)
     end
   end
 end
