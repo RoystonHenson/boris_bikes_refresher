@@ -34,14 +34,14 @@ describe DockingStation do
 
     context 'when only broken bikes stored' do
       it 'does not release broken bike' do
-        bike = double('bike', working: false)
+        allow(bike).to receive(:working).and_return(false)
         subject.dock_bike(bike)
         expect { subject.release_bike }.to raise_error('There are no available bikes.')
         expect(subject.bikes).to eq([bike])
       end
 
       it 'still raises error message when broken bikes stored' do
-        bike = double('bike', working: false)
+        allow(bike).to receive(:working).and_return(false)
         subject.dock_bike(bike)
         expect { subject.release_bike }.to raise_error('There are no available bikes.')
       end
@@ -56,7 +56,7 @@ describe DockingStation do
       end
 
       it 'docks a broken bike' do
-        bike = double('bike', working: false)
+        allow(bike).to receive(:working).and_return(false)
         subject.dock_bike(bike)
         expect(subject.bikes).to eq([bike])
       end
