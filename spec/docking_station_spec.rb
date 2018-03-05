@@ -1,4 +1,4 @@
-require 'docking_station.rb'
+require 'docking_station'
 
 describe DockingStation do
   let(:bike)   { double('bike', working: true) }
