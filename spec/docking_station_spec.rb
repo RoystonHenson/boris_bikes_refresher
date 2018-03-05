@@ -54,13 +54,17 @@ describe DockingStation do
   describe '#dock_bike' do
     it { is_expected.to respond_to(:dock_bike) }
 
-    context 'when bike stand is not full'
-      it 'docks a bike' do
-        (DockingStation::DEFAULT_CAPACITY - 1).times do
-          subject.dock_bike(Bike.new)
-        end
-      subject.dock_bike(bike)
-      expect(subject.bikes).to include(bike)
+    context 'when bike stand is not full' do
+      it 'docks a working bike' do
+        subject.dock_bike(bike)
+        expect(subject.bikes).to eq([bike])
+      end
+
+      it 'docks a broken bike' do
+        bike.broken
+        subject.dock_bike(bike)
+        expect(subject.bikes).to eq([bike])
+      end
     end
 
     context 'when bike stand is full' do
