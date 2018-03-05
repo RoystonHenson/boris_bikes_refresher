@@ -1,12 +1,11 @@
 require 'docking_station.rb'
 
 describe DockingStation do
-  let(:bike)   { Bike.new }
+  let(:bike)   { double('bike', working: true) }
 
   describe '#initialize' do
     context 'user does not set capacity' do
       it 'has default capacity' do
-        subject { DockingStation.new }
         expect(subject.capacity).to eq(DockingStation::DEFAULT_CAPACITY)
       end
     end
@@ -20,8 +19,6 @@ describe DockingStation do
   end
 
   describe '#release_bike' do
-    it { is_expected.to respond_to(:release_bike) }
-
     context 'when working bikes stored' do
       it 'releases a bike' do
         subject.dock_bike(bike)
@@ -52,8 +49,6 @@ describe DockingStation do
   end
 
   describe '#dock_bike' do
-    it { is_expected.to respond_to(:dock_bike) }
-
     context 'when bike stand is not full' do
       it 'docks a working bike' do
         subject.dock_bike(bike)
@@ -61,7 +56,7 @@ describe DockingStation do
       end
 
       it 'docks a broken bike' do
-        bike.broken
+        bike = double('bike', working: false)
         subject.dock_bike(bike)
         expect(subject.bikes).to eq([bike])
       end
@@ -78,8 +73,6 @@ describe DockingStation do
   end
 
   describe '#show_bikes' do
-    it { is_expected.to respond_to(:show_bikes) }
-
     it 'shows docked bikes' do
       subject.dock_bike(bike)
       expect(subject.show_bikes).to eq([bike])
