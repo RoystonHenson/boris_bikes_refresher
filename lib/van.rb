@@ -5,7 +5,7 @@ class Van
     @cargo_area = []
   end
 
-  def collect_broken_bikes(docking_station)
+  def load_broken_bikes(docking_station)
     @cargo_area = docking_station.bikes.select { |x|
       x.working == false
     }

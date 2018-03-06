@@ -11,27 +11,27 @@ describe Van do
     end
   end
 
-  describe '#collect_broken_bikes' do
-    it 'removes broken bikes from docking station' do
-      subject.collect_broken_bikes(docking_station)
+  describe '#load_broken_bikes' do
+    it 'load broken bikes into van' do
+      subject.load_broken_bikes(docking_station)
       expect(docking_station.bikes).to eq([bike])
     end
 
     it 'stores removed bikes in van' do
-      subject.collect_broken_bikes(docking_station)
+      subject.load_broken_bikes(docking_station)
       expect(subject.cargo_area).to eq([bike_2])
     end
   end
 
   describe '#deliver_broken_bikes' do
     it 'returns the delivered bikes' do
-      subject.collect_broken_bikes(docking_station)
+      subject.load_broken_bikes(docking_station)
       subject.deliver_broken_bikes
       expect(subject.delivery).to eq([bike_2])
     end
 
     it 'clears the van cargo area' do
-      subject.collect_broken_bikes(docking_station)
+      subject.load_broken_bikes(docking_station)
       subject.deliver_broken_bikes
       expect(subject.cargo_area).to eq([])
     end

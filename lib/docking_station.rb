@@ -6,7 +6,7 @@ class DockingStation
 
   DEFAULT_CAPACITY = 20
 
-  attr_reader :bikes, :capacity, :working_bike
+  attr_reader :bikes, :capacity, :working_bike, :pickup
 
   def initialize(capacity=DEFAULT_CAPACITY)
     @bikes = []
@@ -26,6 +26,11 @@ class DockingStation
 
   def show_bikes
     @bikes
+  end
+
+  def gather_broken_bikes
+    @pickup = bikes.select { |x| x.working == false }
+    bikes.reject! { |x| x.working == false }
   end
 
   private

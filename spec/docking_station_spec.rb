@@ -78,4 +78,13 @@ describe DockingStation do
       expect(subject.show_bikes).to eq([bike])
     end
   end
+
+  describe '#gather_broken_bikes' do
+    it ' gathers bikes for van pick up' do
+      allow(bike).to receive(:working).and_return(false)
+      subject.dock_bike(bike)
+      subject.gather_broken_bikes
+      expect(subject.pickup).to eq([bike])
+    end
+  end
 end
