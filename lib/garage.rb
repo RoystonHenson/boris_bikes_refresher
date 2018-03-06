@@ -1,7 +1,9 @@
 class Garage
-  attr_reader :broken_bikes
+  attr_reader :bikes
 
   def initialize
-    @broken_bikes = []
+    @bikes = []
   end
+
+  
 end

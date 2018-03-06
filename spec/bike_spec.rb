@@ -27,4 +27,12 @@ describe Bike do
       expect(subject.working).to eq(false)
     end
   end
+
+  describe '#fix' do
+    it 'sets bikes working from false to true' do
+      subject.broken
+      subject.fix
+      expect(subject.working).to eq(true)
+    end
+  end
 end
