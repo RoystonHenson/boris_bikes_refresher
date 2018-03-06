@@ -10,13 +10,6 @@ describe Garage do
     end
   end
 
-  describe '#accept_delivery' do
-    it 'accepts bike delivery from van' do
-      subject.accept_delivery(van)
-      expect(subject.bikes).to eq([bike])
-    end
-  end
-
   describe '#repair_bikes' do
     it 'changes bikes working state to true' do
       subject.bikes << bike

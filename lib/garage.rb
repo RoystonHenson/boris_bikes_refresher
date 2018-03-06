@@ -4,11 +4,7 @@ class Garage
   def initialize
     @bikes = []
   end
-
-  def accept_delivery(van)
-    van.cargo_area.reject! { |x| bikes << x }
-  end
-
+  
   def repair_bikes
     @bikes.each { |x| x.fix }
   end

@@ -88,11 +88,4 @@ describe DockingStation do
       expect(subject.pickup).to eq([bike])
     end
   end
-
-  describe '#accept_delivery' do
-    it 'accepts bike delivery from van' do
-      subject.accept_delivery(van)
-      expect(subject.bikes).to eq([bike])
-    end
-  end
 end
