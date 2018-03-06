@@ -1,3 +1,5 @@
+# require_relative 'docking_station'
+
 class Van
   attr_reader :cargo_area, :delivery
 
@@ -5,11 +7,8 @@ class Van
     @cargo_area = []
   end
 
-  def load_broken_bikes(docking_station)
-    @cargo_area = docking_station.bikes.select { |x|
-      x.working == false
-    }
-    docking_station.bikes.reject! { |x| x.working == false}
+  def pickup_broken_bikes(docking_station)
+    @cargo_area = docking_station.pickup
   end
 
   def deliver_broken_bikes
