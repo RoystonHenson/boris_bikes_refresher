@@ -6,6 +6,6 @@ class Van
   end
 
   def pickup_bikes(pickup_point)
-    @cargo_area = pickup_point.pickup
+    pickup_point.pickup.reject! { |x| cargo_area << x }
   end
 end
