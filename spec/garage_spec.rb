@@ -16,4 +16,22 @@ describe Garage do
       expect(subject.bikes).to eq([bike])
     end
   end
+
+  describe '#repair_bikes' do
+    it 'changes bikes working state to true' do
+      subject.bikes << bike
+      allow(bike).to receive_messages(fix: bike, working: true)
+      subject.repair_bikes
+      expect(bike.working).to eq(true)
+    end
+  end
+
+  describe '#gather_working_bikes' do
+    it 'gathers bikes for van pickup' do
+      bike = double('bike', working: true)
+      subject.bikes << bike
+      subject.gather_working_bikes
+      expect(subject.pickup).to eq([bike])
+    end
+  end
 end

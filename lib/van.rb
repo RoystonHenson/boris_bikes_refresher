@@ -1,7 +1,5 @@
-# require_relative 'docking_station'
-
 class Van
-  attr_reader :cargo_area, :delivery
+  attr_reader :cargo_area
 
   def initialize
     @cargo_area = []

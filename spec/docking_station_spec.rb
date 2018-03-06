@@ -80,7 +80,7 @@ describe DockingStation do
   end
 
   describe '#gather_broken_bikes' do
-    it ' gathers bikes for van pick up' do
+    it ' gathers bikes for van pickup' do
       allow(bike).to receive(:working).and_return(false)
       subject.dock_bike(bike)
       subject.gather_broken_bikes
