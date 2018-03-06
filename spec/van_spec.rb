@@ -17,24 +17,5 @@ describe Van do
       subject.pickup_broken_bikes(docking_station)
       expect(subject.cargo_area).to eq([bike_2])
     end
-
-    xit 'stores removed bikes in van' do
-      subject.pickup_broken_bikes(docking_station)
-      expect(subject.cargo_area).to eq([bike_2])
-    end
-  end
-
-  describe '#deliver_broken_bikes' do
-    xit 'returns the delivered bikes' do
-      subject.pickup_broken_bikes(docking_station)
-      subject.deliver_broken_bikes
-      expect(subject.delivery).to eq([bike_2])
-    end
-
-    xit 'clears the van cargo area' do
-      subject.pickup_broken_bikes(docking_station)
-      subject.deliver_broken_bikes
-      expect(subject.cargo_area).to eq([])
-    end
   end
 end

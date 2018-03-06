@@ -10,10 +10,4 @@ class Van
   def pickup_broken_bikes(docking_station)
     @cargo_area = docking_station.pickup
   end
-
-  def deliver_broken_bikes
-    @delivery = @cargo_area
-    @cargo_area = []
-    return delivery
-  end
 end
