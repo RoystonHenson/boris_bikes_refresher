@@ -1,9 +1,8 @@
 require 'van'
 
 describe Van do
-  let(:bike)   { double('bike', working: true) }
-  let(:bike_2) { double('bike 2', working: false) }
-  let(:docking_station) { double('docking station', bikes: [bike, bike_2]) }
+  let(:bike)   { double('bike') }
+  let(:docking_station) { double('docking station', bikes: [bike]) }
 
   describe '#initialize' do
     it 'initialises with an empty cargo area' do
@@ -11,11 +10,11 @@ describe Van do
     end
   end
 
-  describe '#pickup_broken_bikes' do
-    it 'load broken bikes into van' do
-      allow(docking_station).to receive(:pickup).and_return([bike_2])
-      subject.pickup_broken_bikes(docking_station)
-      expect(subject.cargo_area).to eq([bike_2])
+  describe '#pickup_bikes' do
+    it 'load bikes into van for transport' do
+      allow(docking_station).to receive(:pickup).and_return([bike])
+      subject.pickup_bikes(docking_station)
+      expect(subject.cargo_area).to eq([bike])
     end
   end
 end

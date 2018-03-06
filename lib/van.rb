@@ -5,7 +5,7 @@ class Van
     @cargo_area = []
   end
 
-  def pickup_broken_bikes(docking_station)
-    @cargo_area = docking_station.pickup
+  def pickup_bikes(pickup_point)
+    @cargo_area = pickup_point.pickup
   end
 end
