@@ -8,7 +8,7 @@ class Garage
   end
 
   def accept_delivery(van)
-    van.cargo_area.reject! { |x| @bikes << x }
+    van.cargo_area.reject! { |x| bikes << x }
   end
 
   def repair_bikes

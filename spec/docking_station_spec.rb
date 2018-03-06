@@ -2,6 +2,7 @@ require 'docking_station'
 
 describe DockingStation do
   let(:bike)   { double('bike', working: true) }
+  let(:van) { double('van', cargo_area: [bike]) }
 
   describe '#initialize' do
     context 'user does not set capacity' do
@@ -85,6 +86,13 @@ describe DockingStation do
       subject.dock_bike(bike)
       subject.gather_broken_bikes
       expect(subject.pickup).to eq([bike])
+    end
+  end
+
+  describe '#accept_delivery' do
+    it 'accepts bike delivery from van' do
+      subject.accept_delivery(van)
+      expect(subject.bikes).to eq([bike])
     end
   end
 end

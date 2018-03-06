@@ -33,6 +33,10 @@ class DockingStation
     bikes.reject! { |x| x.working == false }
   end
 
+  def accept_delivery(van)
+    van.cargo_area.reject! { |x| bikes << x }
+  end
+
   private
 
   def unavailable?
