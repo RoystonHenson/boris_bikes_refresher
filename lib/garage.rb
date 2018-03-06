@@ -1,11 +1,7 @@
 class Garage
-  attr_writer :workshop
+  attr_reader :broken_bikes
 
   def initialize
-    @workshop = []
-  end
-
-  def self.workshop
-    @workshop
+    @broken_bikes = []
   end
 end

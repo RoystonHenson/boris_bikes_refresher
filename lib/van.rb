@@ -14,12 +14,7 @@ class Van
 
   def deliver_broken_bikes
     @delivery = @cargo_area
-    clear_cargo_area
-  end
-
-  private
-
-  def clear_cargo_area
-      @cargo_area = []
+    @cargo_area = []
+    return delivery
   end
 end
